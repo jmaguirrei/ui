@@ -1,0 +1,1 @@
+import customHoc from './custom';export function createHoc(Store) {  return customHoc(Store);}

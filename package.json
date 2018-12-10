@@ -1,0 +1,17 @@
+{
+  "name": "@jmaguirrei/ui",
+  "version": "0.0.3",
+  "description": "Rendering framework",
+  "main": "dist/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jmaguirrei/ui.git"
+  },
+  "scripts": {
+    "build": "parcel build ./src/index.js",
+    "package": "npm version patch && npm run build && npm publish --access public",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "José Manuel Aguirre",
+  "license": "MIT"
+}
