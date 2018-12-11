@@ -1,22 +1,22 @@
 
-const isBrowser = process.browser;
-console.log("isBrowser", isBrowser);
 
-export const html = isBrowser
-  ? require('lit-html').html
-  : require('@popeindustries/lit-html-server').html;
+export const universalLitHtml = isBrowser => {
 
-export const render = isBrowser
-  ? require('lit-html').render
-  : require('@popeindustries/lit-html-server').renderToString;
+  if (isBrowser) {
+    return {
+      html: require('lit-html').html,
+      render: require('lit-html').render,
+      repeat: require('lit-html/directives/repeat.js').repeat,
+      guard: require('lit-html/directives/guard.js').guard,
+    };
+  }
 
-export const repeat = isBrowser
-  ? require('lit-html/directives/repeat.js').repeat
-  : require('@popeindustries/lit-html-server/directives/repeat.js').repeat;
+  return {
+    html: require('@popeindustries/lit-html-server').html,
+    render: require('@popeindustries/lit-html-server').renderToString,
+    repeat: require('@popeindustries/lit-html-server/directives/repeat.js').repeat,
+    guard: require('@popeindustries/lit-html-server/directives/guard.js').guard,
+  };
 
-
-export const guard = isBrowser
-  ? require('lit-html/directives/guard.js').guard
-  : require('@popeindustries/lit-html-server/directives/guard.js').guard;
-
+};
 
