@@ -57,7 +57,7 @@
 export const html = require('@popeindustries/lit-html-server').html;
 console.log("html", html);
 
-export const render = require('@popeindustries/lit-html-server').render;
+export const render = require('@popeindustries/lit-html-server').renderToString;
 console.log("render", render);
 
 export const repeat = require('@popeindustries/lit-html-server/directives/repeat.js').repeat;
