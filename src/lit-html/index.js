@@ -1,39 +1,39 @@
 
-function manageHandler(str) {
-  const indexOfHandler = str.indexOf('@');
-  return str.substr(0, indexOfHandler).trim();
-}
+// function manageHandler(str) {
+//   const indexOfHandler = str.indexOf('@');
+//   return str.substr(0, indexOfHandler).trim();
+// }
 
-let html = (fixed, ...dynamic) => {
-  return fixed.reduce((acum, value, i) => {
-    const dynVal = dynamic[i] || '';
-    const isArray = Array.isArray(dynVal);
-    const isFunction = typeof dynVal === 'function';
-    if (isFunction) return `${acum}${manageHandler(value)}`;
-    const dynValStr = isArray ? dynVal.join('') : dynVal;
-    return `${acum}${value}${dynValStr}`;
-  }, '');
-};
+// let html = (fixed, ...dynamic) => {
+//   return fixed.reduce((acum, value, i) => {
+//     const dynVal = dynamic[i] || '';
+//     const isArray = Array.isArray(dynVal);
+//     const isFunction = typeof dynVal === 'function';
+//     if (isFunction) return `${acum}${manageHandler(value)}`;
+//     const dynValStr = isArray ? dynVal.join('') : dynVal;
+//     return `${acum}${value}${dynValStr}`;
+//   }, '');
+// };
 
-let repeat = (data, key, render) => {
-  return data.map(render);
-};
+// let repeat = (data, key, render) => {
+//   return data.map(render);
+// };
 
-let guard = (item, render) => {
-  return render();
-};
+// let guard = (item, render) => {
+//   return render();
+// };
 
-let render = (htmlString, nodeId) => {
-  const node = document.getElementById(nodeId);
-  node.innerHTML = htmlString;
-};
+// let render = (htmlString, nodeId) => {
+//   const node = document.getElementById(nodeId);
+//   node.innerHTML = htmlString;
+// };
 
-export {
-  html,
-  render,
-  repeat,
-  guard,
-};
+// export {
+//   html,
+//   render,
+//   repeat,
+//   guard,
+// };
 
 // const isBrowser = process.browser;
 
@@ -53,4 +53,17 @@ export {
 // export const guard = isBrowser
 //   ? require('lit-html/directives/guard.js').guard
 //   : require('@popeindustries/lit-html-server/directives/guard.js').guard;
+
+export const html = require('@popeindustries/lit-html-server').html;
+console.log("html", html);
+
+export const render = require('@popeindustries/lit-html-server').render;
+console.log("render", render);
+
+export const repeat = require('@popeindustries/lit-html-server/directives/repeat.js').repeat;
+console.log("repeat", repeat);
+
+
+export const guard = require('@popeindustries/lit-html-server/directives/guard.js').guard;
+console.log("guard", guard);
 
