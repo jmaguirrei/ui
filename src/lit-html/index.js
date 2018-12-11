@@ -31,7 +31,9 @@ let render = (htmlString, nodeId) => {
 
 if (process.browser) {
   html = require('lit-html').html;
+  console.log("html", html);
   render = require('lit-html').render;
+  console.log("render", render);
   repeat = require('lit-html/directives/repeat.js').repeat;
   guard = require('lit-html/directives/guard.js').guard;
 }
