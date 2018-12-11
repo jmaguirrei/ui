@@ -1,5 +1,6 @@
 
 const isBrowser = process.browser;
+console.log("isBrowser", isBrowser);
 
 export const html = isBrowser
   ? require('lit-html').html
