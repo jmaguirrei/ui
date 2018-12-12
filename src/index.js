@@ -1,9 +1,8 @@
 
-export { createHoc } from './hoc/createHoc';
-
+import { createHoc } from './hoc/createHoc';
 import { registerStyles, inlineStyle } from './styles';
 
-export const universalStyles = isBrowser => {
+export const universalUI = isBrowser => {
 
   if (isBrowser) {
     return {
@@ -13,6 +12,7 @@ export const universalStyles = isBrowser => {
       guard: require('lit-html/directives/guard.js').guard,
       registerStyles: registerStyles(true),
       inlineStyle: inlineStyle(true),
+      createHoc: createHoc(true),
     };
   }
 
@@ -23,6 +23,7 @@ export const universalStyles = isBrowser => {
     guard: require('@popeindustries/lit-html-server/directives/guard.js').guard,
     registerStyles: registerStyles(false),
     inlineStyle: inlineStyle(false),
+    createHoc: createHoc(false),
   };
 
 };

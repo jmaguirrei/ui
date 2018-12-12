@@ -1,1 +1,1 @@
-import customHoc from './custom';export function createHoc(Store) {  return customHoc(Store);}
+import customHoc from './custom';export function createHoc(isBrowser) {  return Store => {    return customHoc(isBrowser, Store);  };}
