@@ -1,1 +1,1 @@
-export { registerStyles } from './registerStyles';export { iStyle } from './iStyle';
+export { registerStyles } from './registerStyles';export { inlineStyle } from './inlineStyle';
