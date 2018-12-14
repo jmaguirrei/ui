@@ -23,5 +23,9 @@ export const guard = (item, render) => {
   return render();
 };
 
+export const unsafeHTML = htmlString => {
+  return htmlString;
+};
+
 // Not used in SSR
 export const render = () => undefined;

@@ -10,6 +10,7 @@ export const universalUI = isBrowser => {
       render: require('lit-html').render,
       repeat: require('lit-html/directives/repeat.js').repeat,
       guard: require('lit-html/directives/guard.js').guard,
+      unsafeHTML: require('lit-html/directives/unsafe-html.js').unsafeHTML,
       createHoc: createHoc(true),
     };
   }
@@ -19,6 +20,7 @@ export const universalUI = isBrowser => {
     render: litHtmlServer.render,
     repeat: litHtmlServer.repeat,
     guard: litHtmlServer.guard,
+    unsafeHTML: litHtmlServer.unsafeHTML,
     createHoc: createHoc(false),
   };
 
