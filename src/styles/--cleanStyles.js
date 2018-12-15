@@ -1,1 +1,0 @@
-/*  Apply inline styles to elements from template literales "beautiful" line breaks*/export function cleanStyles(isBrowser) {  return styleString => {    const cleanValue = styleString.replace(/;\s+/g, '; ').trim();    if (isBrowser) return cleanValue;    // Server-side we need the colons ''    return `'${cleanValue}'`;  };}
