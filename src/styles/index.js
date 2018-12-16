@@ -1,1 +1,1 @@
-// export { cleanStyles } from './cleanStyles';export { registerStyles } from './registerStyles';export { processStyle } from './processStyle';
+import { registerStyles } from './registerStyles';import { getClassNames } from './getClassNames';import { getStyles } from './getStyles';export default {  registerStyles,  getClassNames,  getStyles,};
