@@ -11,9 +11,11 @@ export const html = (fixed, ...dynamic) => {
     const isFunction = typeof dynVal === 'function';
     if (isFunction) return `${acum}${manageHandler(value)}`;
 
-    const dynValStr = isArray ? dynVal.join('') : `"${dynVal}"`;
-    console.log("dynVal", dynVal);
-    console.log("dynValStr", dynValStr);
+    const dynValStr = isArray
+      ? dynVal.join('')
+      : dynVal.length > 0
+        ? `"${dynVal}"`
+        : '';
 
     return `${acum}${value}${dynValStr}`;
   }, '');
