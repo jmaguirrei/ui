@@ -10,7 +10,7 @@ function manageVal(str) {
   const isArray = Array.isArray(str);
   if (isArray) return str.join('');
   if (str.length === 0) return '';
-  if (str.startsWith(unsafeCode)) return str.substr(unsafeCode.length);
+  if (str.indexOf(unsafeCode) > -1) return str.replace(unsafeCode, '');
   return `"${str}"`;
 }
 
