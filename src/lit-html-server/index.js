@@ -1,4 +1,6 @@
 
+const unsafeCode = '@__unsafe__';
+
 function manageFunction(str) {
   const indexOfHandler = str.indexOf('@');
   return str.substr(0, indexOfHandler).trim();
@@ -8,6 +10,7 @@ function manageVal(str) {
   const isArray = Array.isArray(str);
   if (isArray) return str.join('');
   if (str.length === 0) return '';
+  if (str.startsWith(unsafeCode)) return str.substr(unsafeCode.length);
   return `"${str}"`;
 }
 
@@ -33,8 +36,7 @@ export const guard = (item, render) => {
 };
 
 export const unsafeHTML = htmlString => {
-  console.log("htmlString -|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-> ", htmlString);
-  return htmlString;
+  return `${unsafeCode}${htmlString.trim()}`;
 };
 
 // Not used in SSR
