@@ -33,6 +33,7 @@ export const guard = (item, render) => {
 };
 
 export const unsafeHTML = htmlString => {
+  console.log("htmlString -|-|-|-|-|-|-|-|-|-|-|-|-|-|-|-> ", htmlString);
   return htmlString;
 };
 
