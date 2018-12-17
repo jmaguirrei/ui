@@ -13,15 +13,12 @@ function manageVal(str) {
 }
 
 export const html = (fixed, ...dynamic) => {
-  console.log("fixed", fixed);
-  console.log("dynamic", dynamic);
   return fixed.reduce((acum, value, i) => {
     console.log("value", value);
     const dynVal = dynamic[i] || '';
     const isFunction = typeof dynVal === 'function';
     if (isFunction) return `${acum}${manageFunction(value)}`;
     const valString = manageVal(dynVal);
-    console.log("valString", valString);
     return `${acum}${value}${valString}`;
 
   }, '');
