@@ -13,6 +13,8 @@ function manageVal(str) {
 }
 
 export const html = (fixed, ...dynamic) => {
+  console.log("fixed", fixed);
+  console.log("dynamic", dynamic);
   return fixed.reduce((acum, value, i) => {
     console.log("value", value);
     const dynVal = dynamic[i] || '';
