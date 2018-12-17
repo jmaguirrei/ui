@@ -1,1 +1,1 @@
-import { registerStyles } from './registerStyles';import { getClassNames } from './getClassNames';import { getStyles } from './getStyles';export default {  registerStyles,  getClassNames,  getStyles,};
+import { registerStyles } from './registerStyles';import { getClasses } from './getClasses';import { getStyles } from './getStyles';export default {  registerStyles,  getClasses,  getStyles,};
