@@ -14,6 +14,7 @@ function manageVal(str) {
 
 export const html = (fixed, ...dynamic) => {
   return fixed.reduce((acum, value, i) => {
+    console.log("value", value);
     const dynVal = dynamic[i] || '';
     const isFunction = typeof dynVal === 'function';
     if (isFunction) return `${acum}${manageFunction(value)}`;
