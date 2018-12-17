@@ -7,7 +7,7 @@ function manageFunction(str) {
 function manageVal(str) {
   const isArray = Array.isArray(str);
   if (isArray) return str.join('');
-  if (str.trim().length === 0) return '';
+  return str.trim().length === 0) return '';
   console.log("str", str, str.charCodeAt(0));
   return `"${str}"`;
 }
@@ -18,6 +18,7 @@ export const html = (fixed, ...dynamic) => {
     const isFunction = typeof dynVal === 'function';
     if (isFunction) return `${acum}${manageFunction(value)}`;
     const valString = manageVal(dynVal);
+    console.log("valString", valString);
     return `${acum}${value}${valString}`;
 
   }, '');
