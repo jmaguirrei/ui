@@ -11,6 +11,7 @@ function manageVal(str) {
   if (isArray) return str.join('');
   if (str.length === 0) return '';
   if (str.indexOf(unsafeCode) > -1) return str.replace(unsafeCode, '');
+  if (str.match(/\r|\n/)) return str;
   console.log("str ---->--------->--------->------->", str);
   return `"${str}"`;
 }
