@@ -11,17 +11,16 @@ function manageVal(str) {
   if (isArray) return str.join('');
   if (str.length === 0) return '';
   if (str.indexOf(unsafeCode) > -1) return str.replace(unsafeCode, '');
+  console.log("str ---->--------->--------->------->", str);
   return `"${str}"`;
 }
 
 export const html = (fixed, ...dynamic) => {
   return fixed.reduce((acum, value, i) => {
-    console.log("value -------------->", value);
     const dynVal = dynamic[i] || '';
     const isFunction = typeof dynVal === 'function';
     if (isFunction) return `${acum}${manageFunction(value)}`;
     const valString = manageVal(dynVal);
-    console.log("valString -------------------->", valString);
     return `${acum}${value}${valString}`;
 
   }, '');
