@@ -7,8 +7,8 @@ function manageFunction(str) {
 function manageVal(str) {
   const isArray = Array.isArray(str);
   if (isArray) return str.join('');
-  return str.trim().length === 0) return '';
-  console.log("str", str, str.charCodeAt(0));
+  if (str.length === 0) return '';
+  console.log("str", str, str.length);
   return `"${str}"`;
 }
 
