@@ -1,6 +1,6 @@
 {
   "name": "@jmaguirrei/ui",
-  "version": "0.0.71",
+  "version": "0.0.72",
   "description": "Rendering framework",
   "main": "dist/index.js",
   "repository": {
