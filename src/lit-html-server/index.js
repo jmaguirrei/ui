@@ -6,10 +6,13 @@ function manageFunction(str) {
   return str.substr(0, indexOfHandler).trim();
 }
 
-function manageVal(str) {
+function manageVal(leftValue, str) {
   const isArray = Array.isArray(str);
   if (isArray) return str.join('');
-  if (str.length === 0) return '';
+  if (str.length === 0) {
+    if (leftValue.endsWith('=')) return '""';
+    return '';
+  }
   if (str.indexOf(unsafeCode) > -1) return str.replace(unsafeCode, '');
   if (str.match(/\r|\n/)) return str;
   return `"${str}"`;
@@ -20,8 +23,8 @@ export const html = (fixed, ...dynamic) => {
     const dynVal = dynamic[i] || '';
     const isFunction = typeof dynVal === 'function';
     if (isFunction) return `${acum}${manageFunction(value)}`;
-    const valString = manageVal(String(dynVal));
-    return `${acum}${value}${valString}`;
+    const valString = manageVal(value, String(dynVal));
+    return `${acum}${value}${valString}`.replace(/>\s*,\s*</, '><');
 
   }, '');
 };
