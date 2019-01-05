@@ -2,7 +2,7 @@
 import { createHoc } from './hoc/createHoc';
 import * as litHtmlServer from './lit-html-server';
 
-export const universalUI = isBrowser => {
+export default isBrowser => {
 
   if (isBrowser) {
     return {
